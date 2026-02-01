@@ -1,0 +1,272 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #d4af37;
+    --text-color: #333;
+    --text-light: #666;
+    --bg-color: #fafafa;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+    color: white;
+    padding: 50px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 15s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--accent-color);
+    position: relative;
+    z-index: 1;
+    letter-spacing: 1px;
+}
+
+/* Menu */
+.menu {
+    padding: 40px 30px;
+}
+
+.menu-section {
+    margin-bottom: 50px;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--accent-color);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-item {
+    padding: 20px;
+    background: var(--bg-color);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    gap: 15px;
+}
+
+.item-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    flex: 1;
+}
+
+.item-price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    white-space: nowrap;
+}
+
+.item-description {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-color);
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.allergen-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.footer-text {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        border-radius: 15px;
+    }
+
+    .header {
+        padding: 35px 20px;
+    }
+
+    .logo h1 {
+        font-size: 2.2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .menu {
+        padding: 25px 20px;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .item-name {
+        font-size: 1.1rem;
+    }
+
+    .item-price {
+        font-size: 1.1rem;
+    }
+
+    .item-description {
+        font-size: 0.9rem;
+    }
+
+    .menu-item:hover {
+        transform: translateX(4px);
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+
+    .item-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .item-price {
+        font-size: 1rem;
+    }
+}
